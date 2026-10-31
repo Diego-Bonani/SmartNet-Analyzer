@@ -15,9 +15,8 @@ Ferramenta web para mapear a infraestrutura de uma cidade inteligente como um gr
 
 | Nome | Matrícula |
 |---|---|
-| _(preencher)_ | _(preencher)_ |
-| _(preencher)_ | _(preencher)_ |
-| _(preencher)_ | _(preencher)_ |
+| Diego Gode Bonani | 202401000711 |
+
 
 ## Como executar
 
