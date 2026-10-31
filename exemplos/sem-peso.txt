@@ -1,0 +1,6 @@
+# Exemplo não-direcionado e SEM peso (desmarque "Ponderado" na interface)
+Centro Norte
+Centro Sul
+Norte Leste
+Sul Leste
+Leste Porto

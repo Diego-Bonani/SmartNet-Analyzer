@@ -1,0 +1,7 @@
+# Exemplo direcionado e ponderado (marque "Direcionado" na interface)
+# E é um vértice isolado; D é um beco sem saída
+A B 1
+B C 2
+A C 5
+C D 1
+E

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SmartNet Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>SmartNet Analyzer</h1>
+      <p>Análise de conectividade e roteamento da infraestrutura da cidade</p>
+    </div>
+    <button id="btn-finish" class="btn danger">Finalizar aplicação</button>
+  </header>
+
+  <main class="layout" id="app">
+    <!-- 1. ENTRADA -->
+    <section class="card" id="card-input">
+      <h2>1. Mapeamento da cidade</h2>
+      <div class="options">
+        <label><input type="checkbox" id="opt-directed" /> Direcionado</label>
+        <label><input type="checkbox" id="opt-weighted" checked /> Ponderado</label>
+      </div>
+      <label for="edges-text" class="hint">
+        Uma linha por item: <code>ORIGEM DESTINO PESO</code> (aresta) ou apenas <code>NOME</code> (vértice isolado). Use <code>#</code> para comentários.
+      </label>
+      <textarea id="edges-text" rows="12" spellcheck="false" placeholder="O A 2&#10;O B 5&#10;A B 2"></textarea>
+      <div class="row">
+        <button id="btn-load" class="btn primary">Carregar grafo</button>
+        <button id="btn-clear" class="btn">Apagar grafo</button>
+      </div>
+      <div class="row">
+        <label class="btn file">Abrir arquivo .txt<input type="file" id="file-input" accept=".txt,text/plain" hidden /></label>
+        <select id="examples" aria-label="Exemplos prontos">
+          <option value="">Exemplos prontos…</option>
+          <option value="enunciado">Grafo do enunciado (8 vértices)</option>
+          <option value="direcionado">Direcionado com beco sem saída</option>
+          <option value="sempeso">Sem peso (bairros)</option>
+        </select>
+      </div>
+      <details class="manual">
+        <summary>Adicionar aresta manualmente</summary>
+        <div class="row">
+          <input id="m-from" placeholder="Origem" size="8" />
+          <input id="m-to" placeholder="Destino" size="8" />
+          <input id="m-w" placeholder="Peso" size="5" />
+          <button id="btn-add" class="btn">Adicionar</button>
+        </div>
+      </details>
+      <div id="msg" class="msg" role="status"></div>
+    </section>
+
+    <!-- 2. VISUALIZAÇÃO -->
+    <section class="card" id="card-graph">
+      <h2>2. Mapa da cidade <span class="sub" id="graph-info"></span></h2>
+      <div id="graph-wrap"></div>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <!-- 3. MEMÓRIA -->
+    <section class="card" id="card-memory">
+      <h2>3. Estrutura na memória: lista de adjacência</h2>
+      <p class="hint">Cada vértice guarda a lista dos vizinhos <code>(destino, peso)</code>. Em grafo não-direcionado, cada aresta aparece nas duas listas.</p>
+      <div id="memory"></div>
+    </section>
+
+    <!-- 4. ALGORITMOS -->
+    <section class="card wide" id="card-algos">
+      <h2>4. Módulo de inteligência</h2>
+      <div class="row algo-bar">
+        <label>Vértice de origem
+          <select id="start-vertex"></select>
+        </label>
+        <button class="btn algo" data-algo="dfs" title="Auditoria de rotas e conectividade">DFS – Profundidade</button>
+        <button class="btn algo" data-algo="bfs" title="Propagação de alertas">BFS – Largura</button>
+        <button class="btn algo" data-algo="dijkstra" title="Rota de emergência">Dijkstra</button>
+        <button class="btn algo" data-algo="kruskal" title="Fibra ótica de menor custo">Kruskal (AGM)</button>
+      </div>
+      <div id="result" class="result"><p class="hint">Carregue um grafo e escolha um algoritmo.</p></div>
+    </section>
+  </main>
+
+  <div id="finished" class="finished" hidden>
+    <div>
+      <h2>Aplicação finalizada</h2>
+      <p>O grafo foi descartado e a sessão encerrada.</p>
+      <button id="btn-restart" class="btn primary">Iniciar nova sessão</button>
+    </div>
+  </div>
+
+  <script src="js/graph.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/examples.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
