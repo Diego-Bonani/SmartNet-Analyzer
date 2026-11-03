@@ -20,7 +20,7 @@ Ferramenta web para mapear a infraestrutura de uma cidade inteligente como um gr
 
 ## Como executar
 
-Não há nada para instalar: a aplicação é HTML + JavaScript puro, sem bibliotecas externas e sem internet.
+Não há nada para instalar(Fora o navegador que assumo que já tenha instalado): a aplicação é HTML + JavaScript puro, sem bibliotecas externas e sem internet.
 
 1. Baixe ou clone o repositório.
 2. Dê dois cliques em `index.html` (ou abra o arquivo no Chrome, Edge ou Firefox).
