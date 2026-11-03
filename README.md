@@ -26,6 +26,8 @@ Não há nada para instalar: a aplicação é HTML + JavaScript puro, sem biblio
 2. Dê dois cliques em `index.html` (ou abra o arquivo no Chrome, Edge ou Firefox).
 3. Pronto. A interface abre na hora.
 
+Ou apenas acesse a página (https://diego-bonani.github.io/SmartNet-Analyzer/)
+
 Para rodar os testes automáticos dos algoritmos (opcional, precisa de Node.js 18+):
 
 ```bash
